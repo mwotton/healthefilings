@@ -5,6 +5,7 @@ import           Lib
 import           System.IO     (hPrint, stderr)
 
 main :: IO ()
-main = either (hPrint stderr) (mapM_ (putStrLn . return) . extractOutput)
+main = either (hPrint stderr)
+              (mapM_ (putStrLn . return) . extractOutput)
        . (runProgram <=< readInput)
        =<< getContents
